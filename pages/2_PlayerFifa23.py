@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
-
+import plotly.express as px
 
 
 #Leer datos
-df_origin = pd.read_csv('Fifa_23_players.csv')
+df_origin = pd.read_csv('Fifa_23_Players.csv')
 
 
 with st.sidebar:
