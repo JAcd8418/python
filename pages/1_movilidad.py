@@ -26,7 +26,7 @@ df = pd.DataFrame(data)
 df = df.rename(columns={'LATITUD': 'LAT'})
 df = df.rename(columns={'LONGITUD': 'LON'})
 
-# selector de columna con los dataos reales del dataframe
+# selector de columna con los datas reales del dataframe
 month = st.selectbox('MES',(df["MES"].sort_values(ascending=True).unique()))  
 day = st.selectbox('DÍA',(df["DIA"].sort_values(ascending=True).unique()))   
 clase = st.selectbox('CLASE', (df["CLASE"].sort_values(ascending=True).unique()))
