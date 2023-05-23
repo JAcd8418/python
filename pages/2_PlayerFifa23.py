@@ -34,7 +34,7 @@ rating_medio = df_['Overall'].mean()
 valor_medio = df_['Value(in Euro)'].mean()
 
 col1, col2, col3 = st.columns(3)
-col1.metric("# Jugadores", f"{total_jugadores:,.0f}")
+col1.metric("N° Jugadores", f"{total_jugadores:,.0f}")
 col2.metric("Rating Medio", f"{rating_medio:,.1f}")
 col3.metric("Valor $ Medio", f"{valor_medio:,.0f}")
 

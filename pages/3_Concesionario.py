@@ -9,7 +9,9 @@ modelos = ['Camry', 'Civic', 'F-150', 'Silverado', 'Altima', 'X5', 'C-Class', 'A
 anios = [2018, 2020, 2019, 2017, 2016, 2021, 2018, 2020, 2019, 2017]
 precios = np.random.randint(15000, 50000, 10)
 
-df_autos = pd.DataFrame({'marca': marcas, 'modelo': modelos, 'anio': anios, 'precio': precios})
+df_autos = pd.DataFrame({'Marca': marcas, 'Modelo': modelos, 'Año': anios, 'Precio': precios})
 
 # Mostrar el DataFrame
-print(df_autos)
+
+st.dataframe(df_autos)
+
