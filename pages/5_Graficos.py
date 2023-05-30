@@ -1,36 +1,6 @@
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
-# Creamos un DataFrame de ejemplo con información de vehículos
-data = pd.read_csv('movilidad_incidentes_2022_gdb.csv')
-vehiculos_df = pd.DataFrame(data)
-
-# Establecemos la columna 'Modelo' como índice del DataFrame
-vehiculos_df.set_index('CLASE', inplace=True)
-
-# Creamos un gráfico de línea con las ventas de los vehículos por año
-st.line_chart(vehiculos_df['GRAVEDAD'])
-
-
-
-
-
-
-
-# Crear el DataFrame con la cantidad de animales por tipo
-data = pd.read_csv('movilidad_incidentes_2022_gdb.csv')
-
-df = pd.DataFrame(data)
-
-# Mostrar el DataFrame
-st.write(df)
-
-# Graficar el DataFrame con un gráfico de barras
-st.bar_chart(df.set_index('CLASE'))
-
-
 
 # Datos de insectos
 mosca = 100
@@ -59,7 +29,7 @@ import requests
 
 # API URL
 url = "https://api-colombia.com/api/v1/President"
-
+st.subheader("Presidentes de Colombia 1886-2023")
 # Get response
 response = requests.get(url)
 
