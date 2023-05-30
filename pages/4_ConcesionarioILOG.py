@@ -4,16 +4,25 @@ import numpy as np
 
 st.title(" Concesionario JACD")
 
-data = marcas = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'BMW', 'Mercedes-Benz', 'Audi', 'Volkswagen', 'Hyundai']
+marcas = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'BMW', 'Mercedes-Benz', 'Audi', 'Volkswagen', 'Hyundai']
 modelos = ['Camry', 'Civic', 'F-150', 'Silverado', 'Altima', 'X5', 'C-Class', 'A4', 'Jetta', 'Elantra']
 anios = [2018, 2020, 2019, 2017, 2016, 2021, 2018, 2020, 2019, 2017]
-precios = np.random.randint(15000, 50000, 10)
+precios = np.random.randint(25000, 50000, 10)
 
 df_autos = pd.DataFrame({'Marca': marcas, 'Modelo': modelos, 'Año': anios, 'Precio': precios})
-
+df_autos
 # Mostrar el DataFrame
+# Creamos un DataFrame de ejemplo con información de vehículos
 
-st.dataframe(df_autos)
+vehiculos_df = pd.DataFrame(df_autos)
+
+# Establecemos la columna 'Modelo' como índice del DataFrame
+vehiculos_df.set_index('Marca', inplace=True)
+
+# # Creamos un gráfico de línea con las ventas de los vehículos por año
+st.line_chart(vehiculos_df[['Precio']])
+
+
 
 st.title("I-LOG Pandas")
 
@@ -24,12 +33,23 @@ cantidad = dato.shape[0]
 st.write("El total de Autos es: ", cantidad)
 st.dataframe(dato)
 
+vehiculos_df = pd.DataFrame(dato)
+# Establecemos la columna 'Modelo' como índice del DataFrame
+vehiculos_df.set_index('Modelo', inplace=True)
+# Creamos un gráfico de línea con las ventas de los vehículos por año
+st.line_chart(vehiculos_df[['Precio']])
+
 #Seleccionar las filas de los autos de los últimos 5 fabricantes en el DataFrame
 st.subheader(" Autos de los 5 ultimos fabricantes")
 dato = df_autos.iloc[5:10, :]
 cantidad = dato.shape[0]
 st.write("El total de Autos es: ", cantidad)
 st.dataframe(dato)
+vehiculos_df = pd.DataFrame(dato)
+# Establecemos la columna 'Modelo' como índice del DataFrame
+vehiculos_df.set_index('Modelo', inplace=True)
+# Creamos un gráfico de línea con las ventas de los vehículos por año
+st.line_chart(vehiculos_df[['Precio']])
 
 #Seleccionar la primera columna de todas las filas del DataFrame
 st.subheader("Listado de las Marcas ")
@@ -68,7 +88,7 @@ st.dataframe(age)
 
 #Seleccionar las filas de los autos que tienen un precio mayor a $30,000 y la marca es "Toyota".
 st.subheader("Autos Toyota con precio mayor a $30,000")
-age= df_autos.iloc[ :: ][df_autos['Precio'] >= 3000][df_autos['Marca']=='Toyota']
+age= df_autos.iloc[ :: ][df_autos['Precio'] >= 30000][df_autos['Marca']=='Toyota']
 cantidad = age.shape[0]
 st.write("El total de Autos es: ", cantidad)
 st.dataframe(age)

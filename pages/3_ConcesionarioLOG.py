@@ -2,18 +2,27 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+
+
 st.title(" Concesionario JACD")
 
-data = marcas = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'BMW', 'Mercedes-Benz', 'Audi', 'Volkswagen', 'Hyundai']
+marcas = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'BMW', 'Mercedes-Benz', 'Audi', 'Volkswagen', 'Hyundai']
 modelos = ['Camry', 'Civic', 'F-150', 'Silverado', 'Altima', 'X5', 'C-Class', 'A4', 'Jetta', 'Elantra']
 anios = [2018, 2020, 2019, 2017, 2016, 2021, 2018, 2020, 2019, 2017]
-precios = np.random.randint(15000, 50000, 10)
+precios = np.random.randint(10000, 120000, 10)
 
 df_autos = pd.DataFrame({'Marca': marcas, 'Modelo': modelos, 'Año': anios, 'Precio': precios})
+df_autos
 
-# Mostrar el DataFrame
+# Creamos un DataFrame de ejemplo con información de vehículos
 
-st.dataframe(df_autos)
+vehiculos_df = pd.DataFrame(df_autos)
+
+# Establecemos la columna 'Modelo' como índice del DataFrame
+vehiculos_df.set_index('Marca', inplace=True)
+
+# # Creamos un gráfico de línea con las ventas de los vehículos por año
+st.line_chart(vehiculos_df[['Precio']])
 
 st.title("LOG Pandas")
 #Seleccionar todas las filas de la columna "marca"
